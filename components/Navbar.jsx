@@ -35,11 +35,13 @@ export default function Navbar() {
             </svg>
           </Menu.Button>
 
-          <Menu.Items className="absolute right-0 top-8 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <Menu.Items className="absolute right-0 top-8 mt-2 w-56 origin-top-right rounded-md bg-white p-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <Menu.Item>
               {({ active }) => (
                 <a
-                  className={`${active} group flex w-full items-center rounded-md px-4 py-4 text-lg font-bold text-gray-700`}
+                  className={`${
+                    active ? 'bg-gray-400 text-white' : 'text-gray-700'
+                  } group flex w-full items-center rounded-md px-4 py-4 text-lg font-bold `}
                   href="/blog"
                 >
                   Blog
@@ -49,7 +51,9 @@ export default function Navbar() {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  className={`${active} group flex w-full items-center rounded-md px-4 py-4 text-lg font-bold text-gray-700`}
+                  className={`${
+                    active ? 'bg-gray-400 text-white' : 'text-gray-700'
+                  } group flex w-full items-center rounded-md px-4 py-4 text-lg font-bold`}
                   href="/about-us"
                 >
                   About Us
@@ -59,7 +63,9 @@ export default function Navbar() {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  className={`${active} group flex w-full items-center rounded-md px-4 py-4 text-lg font-bold text-gray-700`}
+                  className={`${
+                    active ? 'bg-gray-400 text-white' : 'text-gray-700'
+                  } group flex w-full items-center rounded-md px-4 py-4 text-lg font-bold`}
                   href="/login"
                 >
                   Login
