@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Navbar from './Navbar';
 
 export default function Layout({ children }) {
   return (
@@ -8,7 +9,8 @@ export default function Layout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto min-h-screen font-inter">
+      <main className="mx-auto min-h-screen font-inter">
+        <Navbar />
         {children}
       </main>
     </>

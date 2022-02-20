@@ -4,7 +4,7 @@ import Button from './Button';
 export default function Hero() {
   return (
     <div className="justify-items mx-auto flex max-w-5xl flex-col px-4 pt-32 text-center sm:pt-48">
-      <h1 className="text-4xl font-bold text-gray-900 sm:text-6xl">
+      <h1 className="text-4xl font-black text-gray-900 sm:text-6xl">
         Want help getting your business off the ground?
       </h1>
 
