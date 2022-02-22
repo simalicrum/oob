@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Button from './Button';
 
 export default function Hero() {
