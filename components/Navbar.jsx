@@ -4,7 +4,9 @@ export default function Navbar() {
   return (
     <div className=" w-full border-b">
       <div className="mx-auto flex max-w-5xl items-center py-4 px-8">
-        <div className="text-2xl font-black text-gray-900">core</div>
+        <div className="text-2xl font-black text-gray-900">
+          <a href="/">core</a>
+        </div>
         <div className="grow"></div>
         <ul className="hidden flex-col sm:flex sm:flex-row">
           <li className="mr-8 text-sm font-bold text-gray-700">
