@@ -24,7 +24,7 @@ export default function Login() {
     }),
     onSubmit: (values) => {
       setIsSubmitting(true);
-      console.log(values);
+      console.log('Form sumbit successful: ', values);
     },
   });
   return (

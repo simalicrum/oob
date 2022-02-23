@@ -2,7 +2,7 @@ export default function Spinner() {
   return (
     <svg
       role="status"
-      class="mr-2 inline h-4 w-4 animate-spin fill-gray-600 text-gray-200 dark:text-gray-600"
+      className="mr-2 inline h-4 w-4 animate-spin fill-gray-600 text-gray-200 dark:text-gray-600"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
