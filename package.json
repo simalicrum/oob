@@ -16,6 +16,7 @@
     "formik": "^2.2.9",
     "neo4j-driver": "^4.4.2",
     "next": "latest",
+    "next-auth": "^4.2.1",
     "next-sanity": "^0.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
