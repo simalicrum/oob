@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Button from './Button';
 
 export default function Hero() {
@@ -12,9 +13,9 @@ export default function Hero() {
         it's easy. Let's get going!
       </p>
       <div className="mt-8 w-auto">
-        <a href="#">
+        <Link href="#">
           <Button> Get started</Button>
-        </a>
+        </Link>
       </div>
     </div>
   );

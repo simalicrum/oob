@@ -1,22 +1,23 @@
 import { Menu } from '@headlessui/react';
+import Link from 'next/link';
 
 export default function Navbar() {
   return (
     <div className=" w-full border-b">
       <div className="mx-auto flex max-w-5xl items-center py-4 px-8">
         <div className="text-2xl font-black text-gray-900">
-          <a href="/">core</a>
+          <Link href="/">core</Link>
         </div>
         <div className="grow"></div>
         <ul className="hidden flex-col sm:flex sm:flex-row">
           <li className="mr-8 text-sm font-bold text-gray-700">
-            <a href="/blog">Blog</a>
+            <Link href="/blog">Blog</Link>
           </li>
           <li className="mr-8 text-sm font-bold text-gray-700">
-            <a href="/about-us">About Us</a>
+            <Link href="/about-us">About Us</Link>
           </li>
           <li className="text-sm font-bold text-gray-700">
-            <a href="/login">Login</a>
+            <Link href="/login">Login</Link>
           </li>
         </ul>
         <Menu as="div" className="relative flex flex-col sm:hidden">
@@ -40,38 +41,38 @@ export default function Navbar() {
           <Menu.Items className="absolute right-0 top-8 mt-2 w-56 origin-top-right rounded-md bg-white p-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <Menu.Item>
               {({ active }) => (
-                <a
+                <Link
                   className={`${
                     active ? 'bg-gray-400 text-white' : 'text-gray-700'
                   } group flex w-full items-center rounded-md px-4 py-4 text-lg font-bold `}
                   href="/blog"
                 >
                   Blog
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
+                <Link
                   className={`${
                     active ? 'bg-gray-400 text-white' : 'text-gray-700'
                   } group flex w-full items-center rounded-md px-4 py-4 text-lg font-bold`}
                   href="/about-us"
                 >
                   About Us
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
+                <Link
                   className={`${
                     active ? 'bg-gray-400 text-white' : 'text-gray-700'
                   } group flex w-full items-center rounded-md px-4 py-4 text-lg font-bold`}
                   href="/login"
                 >
                   Login
-                </a>
+                </Link>
               )}
             </Menu.Item>
           </Menu.Items>
