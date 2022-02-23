@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import Button from './Button';
 import FormInput from './FormInput';
 import FormLabel from './FormLabel';
+import FormError from './FormError';
+import Spinner from './Spinner';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 export default function Login() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -18,6 +22,10 @@ export default function Login() {
         .min(8, 'Password should be of minimum 8 characters length')
         .required('Password is required'),
     }),
+    onSubmit: (values) => {
+      setIsSubmitting(true);
+      console.log(values);
+    },
   });
   return (
     <div className="mx-auto max-w-md px-4 pt-32 sm:pt-48">
@@ -37,7 +45,7 @@ export default function Login() {
             error={formik.errors.email}
           />
           {formik.errors.email ? (
-            <div className="text-sm text-red-500">{formik.errors.email}</div>
+            <FormError>{formik.errors.email}</FormError>
           ) : null}
         </div>
         <div className="mb-4 flex flex-col">
@@ -52,10 +60,10 @@ export default function Login() {
             error={formik.errors.password}
           />
           {formik.errors.password ? (
-            <div className="text-sm text-red-500">{formik.errors.password}</div>
+            <FormError>{formik.errors.password}</FormError>
           ) : null}
         </div>
-        <Button type="submit">Login</Button>
+        <Button type="submit">{isSubmitting ? <Spinner /> : 'Login'}</Button>
       </form>
     </div>
   );
