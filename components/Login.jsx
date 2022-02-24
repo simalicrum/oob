@@ -6,9 +6,11 @@ import FormError from './FormError';
 import Spinner from './Spinner';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { signIn } from 'next-auth/react';
 
 export default function Login() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmittingGoogle, setIsSubmittingGoogle] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -65,6 +67,16 @@ export default function Login() {
         </div>
         <Button type="submit">{isSubmitting ? <Spinner /> : 'Login'}</Button>
       </form>
+      <div className="mt-6 flex flex-col ">
+        <Button
+          onClick={() => {
+            setIsSubmittingGoogle(true);
+            signIn('google', { callbackUrl: '/dashboard' });
+          }}
+        >
+          {isSubmittingGoogle ? <Spinner /> : 'Login with Google'}
+        </Button>
+      </div>
     </div>
   );
 }
