@@ -27,7 +27,6 @@ function Auth({ children }) {
   if (isUser) {
     return children;
   }
-  console.log('Auth happened');
   return (
     <Layout>
       <PageSpinner />
