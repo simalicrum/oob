@@ -10,7 +10,9 @@ export default function Secret() {
       </h1>
       <div className="mt-8 w-auto">
         <Link href="#">
-          <Button onClick={() => signOut()}>Log out</Button>
+          <Button onClick={() => signOut({ callbackUrl: '/login' })}>
+            Log out
+          </Button>
         </Link>
       </div>
     </div>

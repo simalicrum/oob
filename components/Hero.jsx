@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Button from './Button';
+import PageSpinner from './PageSpinner';
 
 export default function Hero() {
   return (

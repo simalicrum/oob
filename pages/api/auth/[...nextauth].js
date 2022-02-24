@@ -20,4 +20,5 @@ export default NextAuth({
       issuer: process.env.AUTH0_ISSUER,
     }),
   ],
+  pages: { signIn: '/login', signOut: '/login' },
 });
