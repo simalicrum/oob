@@ -14,19 +14,16 @@ export default function Login() {
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: '',
     },
     validationSchema: Yup.object({
       email: Yup.string('Enter your email')
         .email('Invalid email address')
         .required('Email is required'),
-      password: Yup.string('Enter your password')
-        .min(8, 'Password should be of minimum 8 characters length')
-        .required('Password is required'),
     }),
     onSubmit: (values) => {
       setIsSubmitting(true);
       console.log('Form sumbit successful: ', values);
+      signIn('email', { email: values.email, callbackUrl: '/dashboard' });
     },
   });
   return (
@@ -50,22 +47,9 @@ export default function Login() {
             <FormError>{formik.errors.email}</FormError>
           ) : null}
         </div>
-        <div className="mb-4 flex flex-col">
-          <FormLabel htmlFor="password">Password</FormLabel>
-          <FormInput
-            id="password"
-            type="password"
-            placeholder="Enter password"
-            name="password"
-            onChange={formik.handleChange}
-            value={formik.values.password}
-            error={formik.errors.password}
-          />
-          {formik.errors.password ? (
-            <FormError>{formik.errors.password}</FormError>
-          ) : null}
-        </div>
-        <Button type="submit">{isSubmitting ? <Spinner /> : 'Login'}</Button>
+        <Button type="submit">
+          {isSubmitting ? <Spinner /> : 'Login with Email'}
+        </Button>
       </form>
       <div className="mt-6 flex flex-col ">
         <Button

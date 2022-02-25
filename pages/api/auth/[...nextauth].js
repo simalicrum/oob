@@ -1,7 +1,6 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import FacebookProvider from 'next-auth/providers/facebook';
-import Auth0Provider from 'next-auth/providers/auth0';
+import EmailProvider from 'next-auth/providers/email';
 import neo4j from 'neo4j-driver';
 import { Neo4jAdapter } from '@next-auth/neo4j-adapter';
 
@@ -14,19 +13,13 @@ const neo4jSession = driver.session();
 
 export default NextAuth({
   providers: [
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET,
-    }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-
-    Auth0Provider({
-      clientId: process.env.AUTH0_ID,
-      clientSecret: process.env.AUTH0_SECRET,
-      issuer: process.env.AUTH0_ISSUER,
+    EmailProvider({
+      server: process.env.EMAIL_SERVER,
+      from: process.env.EMAIL_FROM,
     }),
   ],
   pages: { signIn: '/login', signOut: '/login' },
