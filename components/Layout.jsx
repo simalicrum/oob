@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Navbar from './Navbar';
 
-export default function Layout({ children }) {
+export default function Layout({ children, session, status }) {
   return (
     <>
       <Head>
@@ -10,7 +10,7 @@ export default function Layout({ children }) {
       </Head>
 
       <main className="mx-auto min-h-screen font-inter">
-        <Navbar />
+        <Navbar session={session} status={status} />
         {children}
       </main>
     </>

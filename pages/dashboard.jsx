@@ -1,11 +1,11 @@
-import { getSession, useSession, signIn, signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import Layout from '../components/Layout';
 import Secret from '../components/Secret';
 
 export default function Dashboard() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   return (
-    <Layout>
+    <Layout session={session} status={status}>
       <Secret />
     </Layout>
   );

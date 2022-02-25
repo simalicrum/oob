@@ -1,6 +1,6 @@
-import { SessionProvider, useSession } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react';
 import '../styles/globals.css';
-import Layout from '../components/Layout';
+import { useSession } from 'next-auth/react';
 import PageSpinner from '../components/PageSpinner';
 
 export default function App({
@@ -19,17 +19,11 @@ export default function App({
     </SessionProvider>
   );
 }
-
 function Auth({ children }) {
   const { data: session, status } = useSession({ required: true });
   const isUser = !!session?.user;
-
   if (isUser) {
     return children;
   }
-  return (
-    <Layout>
-      <PageSpinner />
-    </Layout>
-  );
+  return <PageSpinner />;
 }

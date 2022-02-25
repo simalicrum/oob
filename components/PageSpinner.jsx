@@ -1,6 +1,6 @@
 export default function PageSpinner() {
   return (
-    <div className="justify-items mx-auto flex max-w-5xl flex-col px-4 pt-32 text-center sm:pt-48">
+    <div className="mx-auto flex h-screen w-full max-w-5xl items-center justify-center px-4">
       <div>
         <svg
           role="status"

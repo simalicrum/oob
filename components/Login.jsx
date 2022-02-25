@@ -22,7 +22,6 @@ export default function Login() {
     }),
     onSubmit: (values) => {
       setIsSubmitting(true);
-      console.log('Form sumbit successful: ', values);
       signIn('email', { email: values.email, callbackUrl: '/dashboard' });
     },
   });

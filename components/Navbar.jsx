@@ -1,7 +1,30 @@
+import { useState } from 'react';
 import { Menu } from '@headlessui/react';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
+import Spinner from './Spinner';
 
-export default function Navbar() {
+const loginElement = (status) => {
+  switch (status) {
+    case 'loading':
+      return <Spinner />;
+    case 'authenticated':
+      return (
+        <div
+          className="cursor-pointer"
+          onClick={() => signOut({ callbackUrl: '/login' })}
+        >
+          Logout
+        </div>
+      );
+    case 'unauthenticated':
+      return <Link href="/login">Login</Link>;
+    default:
+      return <Spinner />;
+  }
+};
+
+export default function Navbar({ session, status }) {
   return (
     <div className=" w-full border-b">
       <div className="mx-auto flex max-w-5xl items-center py-4 px-8">
@@ -17,7 +40,7 @@ export default function Navbar() {
             <Link href="/about-us">About Us</Link>
           </li>
           <li className="text-sm font-bold text-gray-700">
-            <Link href="/login">Login</Link>
+            {loginElement(status)}
           </li>
         </ul>
         <Menu as="div" className="relative flex flex-col sm:hidden">
